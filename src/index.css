@@ -30,6 +30,11 @@
   background: #4094F7;
   
 }
+/* .ul-item li:active{
+  cursor: pointer;
+  background: #4094F7;
+  
+} */
 .ul-item li:hover svg{
   filter: invert(0%) sepia(0%) saturate(25%) hue-rotate(70deg) brightness(108%) contrast(108%);
 }

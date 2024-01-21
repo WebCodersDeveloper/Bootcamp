@@ -1,27 +1,19 @@
+
+import { useState } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { Area, AreaChart, ResponsiveContainer } from "recharts";
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis,Tooltip } from "recharts";
+import { dataBig, months, data, report } from "../../components/data";
+// import { Tooltip } from "chart.js";
 
 export default function App() {
+  const [selectedMonth, setSelectedMonth] = useState('');
   const percentage = 60;
   const secondPercentage = 40;
-  const data = [
-    { name: "Page A", uv: 100 },
-    { name: "Page B", uv: 300 },
-    { name: "Page B", uv: 200 },
-    { name: "Page B", uv: 400 },
-    { name: "Page C", uv: 300 },
-    { name: "Page C", uv: 500 },
-    { name: "Page C", uv: 400 },
-    { name: "Page C", uv: 600 },
-    { name: "Page C", uv: 400 },
-    { name: "Page C", uv: 500 },
-    { name: "Page C", uv: 300 },
-    { name: "Page C", uv: 400 },
-  ];
+  
   return (
-    <div className="bg-[#DCE9F9] w-[100%] h-screen flex items-center justify-center overflow-hidden py-5 ">
-      <div className="w-[95%] h-full overflow-y-scroll flex flex-col gap-5">
+    <div className="bg-[#DCE9F9] w-[100%] h-screen flex justify-center overflow-y-scroll py-5 ">
+      <div className="w-[95%] h-[1500px]  flex flex-col gap-5">
         <div className="flex justify-between">
           <div className="bg-white w-[271px] h-[120px] rounded-md flex items-center justify-around gap-10">
             <span className="flex flex-col">
@@ -121,15 +113,27 @@ export default function App() {
         <div className="flex w-full">
           <div className="w-[23%] flex flex-col justify-between gap-8">
             <div className="bg-white rounded-md w-72 h-[227px] flex flex-col items-center justify-around">
-              <p className="text-[#6E8BB7] text-sm w-[90%]">Total orders this month</p>
+              <p className="text-[#6E8BB7] text-sm w-[90%]">
+                Total orders this month
+              </p>
               <span className="flex items-center w-[90%] justify-between">
-                  <b className="text-2xl text-[#303940] font-bold">1,850</b>
-                  <b className="flex items-center gap-1 bg-[#f2271c1a] py-1 px-2 text-lg text-red-500 rounded-md">
-                    -5%
-                    <svg className=" bg-[#f2271c5b] rounded-full" xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-                      <path d="M6.00159 6.19329L8.58826 8.77996L11.1749 6.19329C11.4349 5.93329 11.8549 5.93329 12.1149 6.19329C12.3749 6.45329 12.3749 6.87329 12.1149 7.13329L9.05493 10.1933C8.79493 10.4533 8.37493 10.4533 8.11493 10.1933L5.05492 7.13329C4.79492 6.87329 4.79492 6.45329 5.05492 6.19329C5.31492 5.93996 5.74159 5.93329 6.00159 6.19329Z" fill="#F2271C"/>
-                    </svg> 
-                  </b>
+                <b className="text-2xl text-[#303940] font-bold">1,850</b>
+                <b className="flex items-center gap-1 bg-[#f2271c1a] py-1 px-2 text-lg text-red-500 rounded-md">
+                  -5%
+                  <svg
+                    className=" bg-[#f2271c5b] rounded-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="16"
+                    viewBox="0 0 17 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M6.00159 6.19329L8.58826 8.77996L11.1749 6.19329C11.4349 5.93329 11.8549 5.93329 12.1149 6.19329C12.3749 6.45329 12.3749 6.87329 12.1149 7.13329L9.05493 10.1933C8.79493 10.4533 8.37493 10.4533 8.11493 10.1933L5.05492 7.13329C4.79492 6.87329 4.79492 6.45329 5.05492 6.19329C5.31492 5.93996 5.74159 5.93329 6.00159 6.19329Z"
+                      fill="#F2271C"
+                    />
+                  </svg>
+                </b>
               </span>
               <div className="w-[90%] h-[50%]">
                 <ResponsiveContainer width="100%" height="100%">
@@ -142,8 +146,16 @@ export default function App() {
                         x2="0"
                         y2="1"
                       >
-                        <stop offset="5%" stopColor="#F8C51B" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#F8DD4E" stopOpacity={0} />
+                        <stop
+                          offset="5%"
+                          stopColor="#F8C51B"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#F8DD4E"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                     </defs>
                     <Area
@@ -157,79 +169,119 @@ export default function App() {
               </div>
             </div>
             <div className="bg-white rounded-md w-72 h-[227px] flex flex-col items-center justify-around">
-              <p className="text-[#6E8BB7] text-sm w-[90%]">Earning this month</p>
+              <p className="text-[#6E8BB7] text-sm w-[90%]">
+                Earning this month
+              </p>
               <span className="flex items-center w-[90%] justify-between">
-                  <b className="text-2xl text-[#303940] font-bold">$6,250</b>
-                  <b className="flex items-center gap-1 bg-[#f2271c1a] py-1 px-2 text-lg text-red-500 rounded-md">
-                    -5%
-                    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-                      <path d="M11.1749 9.80671L8.58826 7.22004L6.00159 9.80671C5.74159 10.0667 5.32159 10.0667 5.06159 9.80671C4.80159 9.54671 4.80159 9.12671 5.06159 8.86671L8.12159 5.80671C8.38159 5.54671 8.80159 5.54671 9.06159 5.80671L12.1216 8.86671C12.3816 9.12671 12.3816 9.54671 12.1216 9.80671C11.8616 10.06 11.4349 10.0667 11.1749 9.80671Z" fill="#1AC19D"/>
-                    </svg> 
-                  </b>
+                <b className="text-2xl text-[#303940] font-bold">$6,250</b>
+                <b className="flex items-center gap-1 bg-[#1ac19d26] py-1 px-2 text-lg text-green-500 rounded-md">
+                  +25%
+                  <svg
+                    className="bg-[#1ac19d44] rounded-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="16"
+                    viewBox="0 0 17 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.1749 9.80671L8.58826 7.22004L6.00159 9.80671C5.74159 10.0667 5.32159 10.0667 5.06159 9.80671C4.80159 9.54671 4.80159 9.12671 5.06159 8.86671L8.12159 5.80671C8.38159 5.54671 8.80159 5.54671 9.06159 5.80671L12.1216 8.86671C12.3816 9.12671 12.3816 9.54671 12.1216 9.80671C11.8616 10.06 11.4349 10.0667 11.1749 9.80671Z"
+                      fill="#1AC19D"
+                    />
+                  </svg>
+                </b>
               </span>
               <div className="w-[90%] h-[50%]">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={data}>
                     <defs>
                       <linearGradient
-                        id="colorGradient"
+                        id="colorGradient2"
                         x1="0"
                         y1="0"
                         x2="0"
                         y2="1"
                       >
-                        <stop offset="5%" stopColor="#F8C51B" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#F8DD4E" stopOpacity={0} />
+                        <stop
+                          offset="5%"
+                          stopColor="#A23FEE"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#A23FEE"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                     </defs>
                     <Area
                       type="basis"
                       dataKey="uv"
-                      stroke="#F8C51B"
-                      fill="url(#colorGradient)"
+                      stroke="#A23FEE"
+                      fill="url(#colorGradient2)"
                     />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
             </div>
             <div className="bg-white rounded-md w-72 h-[227px] flex flex-col items-center justify-around">
-              <p className="text-[#6E8BB7] text-sm w-[90%]">Total orders this month</p>
+              <p className="text-[#6E8BB7] text-sm w-[90%]">
+                Total orders this month
+              </p>
               <span className="flex items-center w-[90%] justify-between">
-                  <b className="text-2xl text-[#303940] font-bold">1,850</b>
-                  <b className="flex items-center gap-1 bg-[#f2271c1a] py-1 px-2 text-lg text-red-500 rounded-md">
-                    -5%
-                    <svg className=" bg-[#f2271c5b] rounded-full" xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
-                      <path d="M6.00159 6.19329L8.58826 8.77996L11.1749 6.19329C11.4349 5.93329 11.8549 5.93329 12.1149 6.19329C12.3749 6.45329 12.3749 6.87329 12.1149 7.13329L9.05493 10.1933C8.79493 10.4533 8.37493 10.4533 8.11493 10.1933L5.05492 7.13329C4.79492 6.87329 4.79492 6.45329 5.05492 6.19329C5.31492 5.93996 5.74159 5.93329 6.00159 6.19329Z" fill="#F2271C"/>
-                    </svg> 
-                  </b>
+                <b className="text-2xl text-[#303940] font-bold">$12,750</b>
+                <b className="flex items-center gap-1 bg-[#1ac19d26] py-1 px-2 text-lg text-green-500 rounded-md">
+                  +12%
+                  <svg
+                    className="bg-[#1ac19d44] rounded-full"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="16"
+                    viewBox="0 0 17 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.1749 9.80671L8.58826 7.22004L6.00159 9.80671C5.74159 10.0667 5.32159 10.0667 5.06159 9.80671C4.80159 9.54671 4.80159 9.12671 5.06159 8.86671L8.12159 5.80671C8.38159 5.54671 8.80159 5.54671 9.06159 5.80671L12.1216 8.86671C12.3816 9.12671 12.3816 9.54671 12.1216 9.80671C11.8616 10.06 11.4349 10.0667 11.1749 9.80671Z"
+                      fill="#1AC19D"
+                    />
+                  </svg>
+                </b>
               </span>
               <div className="w-[90%] h-[50%]">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={data}>
                     <defs>
                       <linearGradient
-                        id="colorGradient"
+                        id="colorGradient3"
                         x1="0"
                         y1="0"
                         x2="0"
                         y2="1"
                       >
-                        <stop offset="5%" stopColor="#F8C51B" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#F8DD4E" stopOpacity={0} />
+                        <stop
+                          offset="5%"
+                          stopColor="#F2271C"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#F2271C"
+                          stopOpacity={0}
+                        />
                       </linearGradient>
                     </defs>
                     <Area
                       type="basis"
                       dataKey="uv"
-                      stroke="#F8C51B"
-                      fill="url(#colorGradient)"
+                      stroke="#F2271C"
+                      fill="url(#colorGradient3)"
                     />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
             </div>
           </div>
-          <div className="w-[77%] flex flex-col">
+          <div className="w-[77%] flex flex-col gap-y-10">
             <div className="flex w-full justify-between">
               <div className="w-[453px] h-[208px] bg-white rounded-md flex items-center justify-around gap-2">
                 <div className="w-36 h-36">
@@ -292,7 +344,102 @@ export default function App() {
                 </span>
               </div>
             </div>
-            <div></div>
+            <div className="bg-white w-full h-[592px] rounded-md flex flex-col items-center justify-between">
+              <div className="w-[95%] h-[15%] flex items-center justify-between">
+                <h2 className="font-semibold text-lg text-[#5B6871]">
+                  Ежемесячная статистика
+                </h2>
+                <select
+                  value={selectedMonth}
+                  onChange={(e) => setSelectedMonth(e.target.value)}
+                  className="bg-white border cursor-pointer border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 h-10 p-2.5"
+                >
+                  <option value="">Select month</option>
+                  {months.map((month) => (
+                    <option key={month} value={month}>
+                      {month}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="w-[98%] h-[70%]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart width={500} height={400} data={dataBig}>
+                    <defs>
+                      <linearGradient
+                        id="chartBackgroundGradient"
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="1"
+                      >
+                        <stop
+                          offset="5%"
+                          stopColor="#0E73F6"
+                          stopOpacity={0.8}
+                        />
+                        <stop
+                          offset="95%"
+                          stopColor="#0E73F6"
+                          stopOpacity={0}
+                        />
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Area
+                      type="monotone"
+                      dataKey="uv"
+                      stroke="#8884d8"
+                      fill="url(#chartBackgroundGradient)" // Use the gradient for the fill
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="flex h-[8%] items-center">
+                <b className="px-10 py-[10px] border-b-4 border-transparent transition-all cursor-pointer hover:border-blue-500 hover:text-blue-600">
+                  Неделья
+                </b>
+                <b className="px-10 py-[10px] border-b-4 border-transparent transition-all cursor-pointer hover:border-blue-500 hover:text-blue-600">
+                  Месяц
+                </b>
+                <b className="px-10 py-[10px] border-b-4 border-transparent transition-all cursor-pointer hover:border-blue-500 hover:text-blue-600">
+                  Год
+                </b>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white w-full h-[410px] rounded-md flex flex-col items-center">
+          <div className="w-[95%] h-[13%] flex items-center">
+            <h2 className="font-semibold text-lg text-[#5B6871]">
+              Общий отчет
+            </h2>
+          </div>
+          <div className="border rounded-md w-[96%] h-[84%]">
+            <div className="h-[40px] border-t flex items-center justify-between">
+              <p className="h-full w-[19%] flex items-center justify-center font-semibold">Число</p>
+              <p className="h-full w-[19%] flex items-center justify-center font-semibold">Доставка</p>
+              <p className="h-full w-[19%] flex items-center justify-center font-semibold">Доставка</p>
+              <p className="h-full w-[19%] flex items-center justify-center font-semibold">Самовывоз</p>
+              <p className="h-full w-[19%] flex items-center justify-center font-semibold">Агрегаторы</p>
+            </div>
+            {report.map((item) => {
+              return (
+                <div
+                  key={item.number}
+                  className="h-[50px] border-t flex items-center justify-between"
+                >
+                  <p className="h-full w-[19%] flex items-center justify-center">{item.number}</p>
+                  <p className="h-full w-[19%] flex items-center justify-center">{item.first_delivery}</p>
+                  <p className="h-full w-[19%] flex items-center justify-center">{item.second_delivery}</p>
+                  <p className="h-full w-[19%] flex items-center justify-center">{item.pickup}</p>
+                  <p className="h-full w-[19%] flex items-center justify-center">{item.aggregators}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
