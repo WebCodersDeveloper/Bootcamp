@@ -33,3 +33,6 @@
 .ul-item li:hover svg{
   filter: invert(0%) sepia(0%) saturate(25%) hue-rotate(70deg) brightness(108%) contrast(108%);
 }
+::-webkit-scrollbar{
+  display: none;
+}
