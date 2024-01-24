@@ -2,15 +2,23 @@ import { useState } from "react";
 import { IoMdAdd, IoMdClose, IoMdRemove } from "react-icons/io";
 import { IoClose, IoPrint } from "react-icons/io5";
 import { food } from "../../components/data";
-import { FaClosedCaptioning, FaEquals, FaMinus, FaPlus } from "react-icons/fa6";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { FaCar, FaEquals, FaMinus, FaPlus } from "react-icons/fa6";
+import { TbSum } from "react-icons/tb";
 
 export default function Createdata() {
   const [secondPhone, setSecondPhone] = useState(false);
   const [addBtnShow, setaddBtnShow] = useState(true);
+  const [BtnShow, setBtnShow] = useState(true);
   const [selectValue, setselectValue] = useState("");
+  const [selectValue2, setselectValue2] = useState("");
   const [count, setCount] = useState(1);
+  const [count2, setCount2] = useState(1);
 
-  console.log(selectValue);
+  const [showFirst, setShowFirst] = useState(true);
+  const [showSecond, setShowSecond] = useState(false);
+
+  
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -19,6 +27,28 @@ export default function Createdata() {
   const handleDecrement = () => {
     if (count > 1) {
       setCount(count - 1);
+    }
+  };
+  const handleIncrement2 = () => {
+    setCount2(count2 + 1);
+  };
+
+  const handleDecrement2 = () => {
+    if (count2 > 1) {
+      setCount2(count2 - 1);
+    }
+  };
+  const handleAdd = () => {
+    if (showFirst === false && showSecond === false) {
+      setShowFirst(!showFirst)
+    }
+    else if(showSecond === false && showFirst === true) {
+      setShowSecond(!showSecond)
+      setBtnShow(!BtnShow)
+    }
+    else if(showSecond === true && showFirst === false) {
+      setShowFirst(!showFirst)
+      setBtnShow(!BtnShow)
     }
   };
 
@@ -39,7 +69,7 @@ export default function Createdata() {
         </button>
       </div>
       <div className="bg-[#DCE9F9] w-[100%] h-screen flex justify-center overflow-y-scroll py-5 ">
-        <div className="flex flex-col w-[96%] h-[10000px] gap-10">
+        <div className="flex flex-col w-[96%] h-[1300px] gap-10">
           <div className="flex gap-10">
             <div className="bg-white w-[662px] max-h-[310px] pb-2 rounded-md flex flex-col items-center">
               <h2 className="w-full px-4 py-2 border-b-2">Клиент</h2>
@@ -192,94 +222,255 @@ export default function Createdata() {
               </div>
             </div>
           </div>
-          <div className="w-full h-[350px] bg-white rounded-md flex flex-col items-center">
+          <div className="w-full h-[410px] bg-white rounded-md flex flex-col items-center gap-4">
             <h2 className="w-full px-4 py-3 border-b-2">Продукты</h2>
-            <div className="w-[97%] h-[92px] flex items-center gap-5">
-              <span className="flex  flex-col w-[384px] h-full justify-around">
-                <b>Наименование</b>
-                <select
-                  value={selectValue}
-                  onChange={(e) => setselectValue(e.target.value)}
-                  className="cursor-pointer h-8 px-2 py-1 rounded-md border-2 outline-none focus-within:border-blue-500"
-                >
-                  {food.map((foodItem) => {
-                    return (
-                      <option key={foodItem.id} value={foodItem.name}>
-                        {foodItem.name}
-                      </option>
-                    );
-                  })}
-                </select>
-              </span>
-              <span className="flex  flex-col h-full justify-around">
-                <b>Цена</b>
-                <p className="w-40 h-8 rounded-md border-2 flex items-center">
-                  {food.map((item) => {
-                    if (item.name === selectValue) {
+            {showFirst && (
+              <div className="w-[97%] h-[92px] flex items-center gap-5">
+                <span className="flex  flex-col w-[384px] h-full justify-around">
+                  <b>Наименование</b>
+                  <select
+                    value={selectValue}
+                    onChange={(e) => setselectValue(e.target.value)}
+                    className="cursor-pointer h-8 px-2 py-1 rounded-md border-2 outline-none focus-within:border-blue-500"
+                  >
+                    {food.map((foodItem) => {
                       return (
-                        <span
-                          className="w-full h-8 rounded-md border-2 border-blue-500 flex items-center pl-2"
-                          key={item.id}
-                        >
-                          {item.price} so`m
-                        </span>
+                        <option key={foodItem.id} value={foodItem.name}>
+                          {foodItem.name}
+                        </option>
                       );
-                    }
-                  })}
-                </p>
-              </span>
-              <span className="mt-10 text-blue-500 text-xl">
-                <IoMdClose />
-              </span>
-              <span className="mt-10 flex items-center rounded-md overflow-hidden">
-                <button
-                  onClick={handleDecrement}
-                  className="h-8 w-8 border-2 rounded-l-md flex items-center justify-center text-blue-500 outline-none"
-                >
-                  <FaMinus />
+                    })}
+                  </select>
+                </span>
+                <span className="flex  flex-col h-full justify-around">
+                  <b>Цена</b>
+                  <p className="w-40 h-8 rounded-md border-2 flex items-center">
+                    {food.map((item) => {
+                      if (item.name === selectValue) {
+                        return (
+                          <span
+                            className="w-full h-8 rounded-md border-2 border-blue-500 flex items-center pl-2"
+                            key={item.id}
+                          >
+                            {item.price} so`m
+                          </span>
+                        );
+                      }
+                    })}
+                  </p>
+                </span>
+                <span className="mt-10 text-blue-500 text-xl">
+                  <IoMdClose />
+                </span>
+                <span className="mt-10 flex items-center rounded-md overflow-hidden">
+                  <button
+                    onClick={handleDecrement}
+                    className="h-8 w-8 border-2 rounded-l-md flex items-center justify-center text-blue-500 outline-none"
+                  >
+                    <FaMinus />
+                  </button>
+                  <p className="w-14 h-8 flex items-center justify-center border-y-2">
+                    {count}
+                  </p>
+                  <button
+                    onClick={handleIncrement}
+                    className="h-8 w-8 border-2 rounded-r-md flex items-center justify-center text-blue-500 outline-none"
+                  >
+                    <FaPlus />
+                  </button>
+                </span>
+                <span className="mt-10 text-blue-500 text-xl">
+                  <FaEquals />
+                </span>
+                <span className="flex  flex-col h-full justify-around">
+                  <b>Общая стоимость</b>
+                  <p className="w-40 h-8 rounded-md border-2 flex items-center">
+                    {food.map((item) => {
+                      if (item.name === selectValue) {
+                        let all = item.price * count;
+                        return (
+                          <span
+                            className="w-full h-8 rounded-md border-2 border-blue-500 flex items-center pl-2"
+                            key={item.id}
+                          >
+                            {all} so`m
+                          </span>
+                        );
+                      }
+                    })}
+                  </p>
+                </span>
+                <span className="flex  flex-col h-full justify-around">
+                  <b>Описание</b>
+                  <input
+                    type="text"
+                    placeholder="Описание"
+                    className="w-[305px] pl-2 py-1 h-8 border-2 rounded-md outline-none focus-within:border-blue-500"
+                  />
+                </span>
+                <button onClick={() => {setShowFirst(!showFirst), setBtnShow(true)}} className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base">
+                  <IoClose />
                 </button>
-                <p className="w-14 h-8 flex items-center justify-center border-y-2">
-                  {count}
-                </p>
-                <button
-                  onClick={handleIncrement}
-                  className="h-8 w-8 border-2 rounded-r-md flex items-center justify-center text-blue-500 outline-none"
-                >
-                  <FaPlus />
-                </button>
-              </span>
-              <span className="mt-10 text-blue-500 text-xl">
-                <FaEquals />
-              </span>
-              <span className="flex  flex-col h-full justify-around">
-                <b>Общая стоимость</b>
-                <p className="w-40 h-8 rounded-md border-2 flex items-center">
-                  {food.map((item) => {
-                    if (item.name === selectValue) {
-                      let all = item.price * count;
+              </div>
+            )}
+            {showSecond && (
+              <div className="w-[97%] h-[92px] flex items-center gap-5">
+                <span className="flex  flex-col w-[384px] h-full justify-around">
+                  <b>Наименование</b>
+                  <select
+                    value={selectValue2}
+                    onChange={(e) => setselectValue2(e.target.value)}
+                    className="cursor-pointer h-8 px-2 py-1 rounded-md border-2 outline-none focus-within:border-blue-500"
+                  >
+                    {food.map((foodItem) => {
                       return (
-                        <span
-                          className="w-full h-8 rounded-md border-2 border-blue-500 flex items-center pl-2"
-                          key={item.id}
-                        >
-                          {all} so`m
-                        </span>
+                        <option key={foodItem.id} value={foodItem.name}>
+                          {foodItem.name}
+                        </option>
                       );
-                    }
-                  })}
-                </p>
-              </span>
-              <span className="flex  flex-col h-full justify-around">
-                <b>Описание</b>
-                <input
-                  type="text"
-                  placeholder="Описание"
-                  className="w-[305px] pl-2 py-1 h-8 border-2 rounded-md outline-none focus-within:border-blue-500"
-                />
-              </span>
-              <button className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base">
-                <IoClose />
-              </button>
+                    })}
+                  </select>
+                </span>
+                <span className="flex  flex-col h-full justify-around">
+                  <b>Цена</b>
+                  <p className="w-40 h-8 rounded-md border-2 flex items-center">
+                    {food.map((item) => {
+                      if (item.name === selectValue2) {
+                        return (
+                          <span
+                            className="w-full h-8 rounded-md border-2 border-blue-500 flex items-center pl-2"
+                            key={item.id}
+                          >
+                            {item.price} so`m
+                          </span>
+                        );
+                      }
+                    })}
+                  </p>
+                </span>
+                <span className="mt-10 text-blue-500 text-xl">
+                  <IoMdClose />
+                </span>
+                <span className="mt-10 flex items-center rounded-md overflow-hidden">
+                  <button
+                    onClick={handleDecrement2}
+                    className="h-8 w-8 border-2 rounded-l-md flex items-center justify-center text-blue-500 outline-none"
+                  >
+                    <FaMinus />
+                  </button>
+                  <p className="w-14 h-8 flex items-center justify-center border-y-2">
+                    {count2}
+                  </p>
+                  <button
+                    onClick={handleIncrement2}
+                    className="h-8 w-8 border-2 rounded-r-md flex items-center justify-center text-blue-500 outline-none"
+                  >
+                    <FaPlus />
+                  </button>
+                </span>
+                <span className="mt-10 text-blue-500 text-xl">
+                  <FaEquals />
+                </span>
+                <span className="flex  flex-col h-full justify-around">
+                  <b>Общая стоимость</b>
+                  <p className="w-40 h-8 rounded-md border-2 flex items-center">
+                    {food.map((item) => {
+                      if (item.name === selectValue2) {
+                        let all = item.price * count2;
+                        return (
+                          <span
+                            className="w-full h-8 rounded-md border-2 border-blue-500 flex items-center pl-2"
+                            key={item.id}
+                          >
+                            {all} so`m
+                          </span>
+                        );
+                      }
+                    })}
+                  </p>
+                </span>
+                <span className="flex  flex-col h-full justify-around">
+                  <b>Описание</b>
+                  <input
+                    type="text"
+                    placeholder="Описание"
+                    className="w-[305px] pl-2 py-1 h-8 border-2 rounded-md outline-none focus-within:border-blue-500"
+                  />
+                </span>
+                <button onClick={() => {setShowSecond(!showSecond),setBtnShow(true)}} className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base">
+                  <IoClose />
+                </button>
+              </div>
+            )}
+            {BtnShow && (
+              <button onClick={() => handleAdd()} className="w-[97%] h-10 rounded-md border-dashed border-2 bg-[#6E8BB71A] flex items-center justify-center gap-1 text-[#6E8BB7]">
+              <IoMdAdd />
+              Добавить продукт
+            </button>
+            )}
+            <div className="w-full border-t-2 h-44 flex">
+              <div className="w-[50%] flex flex-col items-center justify-between px-2 py-1 border-r-2">
+                <span className="flex items-center h-14 gap-5">
+                  <b>Типы оплаты</b>
+                  <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
+                    <img className="w-7" src="https://s3-alpha-sig.figma.com/img/724d/d3de/f3bcd898a91a1562128c7fff2daa2afe?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=COh4UXPLyrZLzb2CWunJzcxkLwGLxpVBf8yCWI~gh0pjCSXSZ11dMAOxDXTwl9oQpGStC4MV3y2hS60tK9NQ~TIdHQ2c~gpDKDZz9L~SPRYxVB9PqAKKwxmOZ7x1~Y3rqsV8G8ib2YQC7hdH8NESgN-RMSZ9kUrLytoW6cvwHXlvpiDvr0mBumB~v3wSWkby6O9b591SRltmMja14C2TSA0g3GYoQ0GmEU1tYfeVZ2DQRXKC~ynZdmx5Lp~mtqhtYZqpC7iaUeBCmCyFo811RO8mb8460M046ySBxOd6vFPp636KylW3AlALI6l4xed3qUCTAuHiDLi6inN6sLQIWw__" alt="" />
+                  </button>
+                  <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
+                    <img className="w-12" src="https://s3-alpha-sig.figma.com/img/7f1d/0dbc/cfefd3d50bb1756d2abead27733f1be2?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S7ppdSktvpQ8rFSWnMwqgpWKZFdcj3fy4lrjgp1FFg192hn7MF0HBrJx6wFabTaR5k4~18bTUigQbBuj-bU4Xy~X4GC8M2VUxMw9yrAxfalmsQ6jE1af9YaG-wD5IFw0jmShm3amewTyPEg8Ej8lqu6dpniSGODYVc4wusMaocZvy228YgiwENCT2x9G1VmUFDWii4cWDYKMQGtO2YFCzhZLBd97qZmHWspmP6MouB4WyDUBhWd7g8HwmbaXVBQIHes~YAQcCHK1VmjrJnp05iJR48bEoTI2-X7Baogu2Bzbu7Yow8u-fpctNEoKOFM~nLlk0qDFicrVprUJjfBmkw__" alt="" />
+                  </button>
+                  <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
+                    <img className="w-20" src="https://api.logobank.uz/media/logos_png/Uzum-01.png" alt="" />
+                  </button>
+                  <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
+                    <img className="w-7" src="https://cdn-icons-png.freepik.com/512/925/925065.png" alt="" />
+                  </button>
+                 </span>
+                 <span className="flex items-center">
+                  <b className="w-[122px]">Курьер</b>
+                  <select className="w-[530px] h-8 border-2 rounded-md px-3">
+                    <option>Курьер</option>
+                    <option>Choshtepa</option>
+                    <option>Olmazor</option>
+                    <option>Chilonzor</option>
+                    <option>Mirzo Ulug`bek</option>
+                    <option>Novza</option>
+                  </select>
+                 </span>
+                 <span className="flex items-center">
+                  <b className="w-[122px]">Оператор</b>
+                  <select className="w-[530px] h-8 border-2 rounded-md px-3">
+                    <option>Курьер</option>
+                    <option>Choshtepa</option>
+                    <option>Olmazor</option>
+                    <option>Chilonzor</option>
+                    <option>Mirzo Ulug`bek</option>
+                    <option>Novza</option>
+                  </select>
+                 </span>
+              </div>
+              <div className="w-[50%] flex flex-col items-center justify-between px-2 py-1">
+                <span className="flex items-center h-10 justify-between w-[85%]">
+                  <p className="flex items-center text-blue-500 gap-3">
+                    <RiMoneyDollarCircleFill />
+                    Сумма заказа
+                  </p>
+                  <b>2 00 00 000</b>
+                </span>
+                <span className="flex items-center h-10 justify-between w-[85%] border-b-2">
+                  <p className="flex items-center text-blue-500 gap-3">
+                    <FaCar />
+                    Сумма доставки
+                  </p>
+                  <b>10 000 so`m</b>
+                </span>
+                <span className="flex items-center h-10 justify-between w-[85%]">
+                  <p className="flex items-center text-blue-500 gap-3">
+                    <TbSum />
+                    Итого
+                  </p>
+                  <b>10 000 so`m</b>
+                </span>
+              </div>
             </div>
           </div>
         </div>
