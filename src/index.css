@@ -20,14 +20,12 @@
   justify-content: center;
   border-radius: 6px;
   transition: ease-in-out 350ms;
-}
-.ul-item li svg{
-  transition: ease-in-out 350ms;
-  filter: invert(56%) sepia(62%) saturate(255%) hue-rotate(177deg) brightness(110%) contrast(90%);
+  outline: none;
 }
 .ul-item li:hover{
   cursor: pointer;
   background: #4094F7;
+  color: white;
   
 }
 /* .ul-item li:active{
@@ -35,9 +33,6 @@
   background: #4094F7;
   
 } */
-.ul-item li:hover svg{
-  filter: invert(0%) sepia(0%) saturate(25%) hue-rotate(70deg) brightness(108%) contrast(108%);
-}
 ::-webkit-scrollbar{
   display: none;
 }

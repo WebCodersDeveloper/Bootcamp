@@ -34,8 +34,9 @@ export default function Login() {
       <ToastContainer />
       <div className="h-screen max-w-[1920px] bg-gradient-radial mx-auto my-0 flex items-center justify-center">
         <div className="flex w-full h-full shadow-2xl">
-          <div className="w-[50%] h-full bg-radial flex items-center justify-center">
-            <img src={mac} className="w-[400px]" alt="" />
+          <div className="w-[50%] h-full bg-radial flex flex-col items-center justify-center relative">
+            <h1 className="absolute text-white font-semibold text-5xl top-[5%] left-[5%]">Delever</h1>
+            <img src={mac} className="w-[800px]" alt="" />
           </div>
           <div className="w-[50%] h-full bg-white flex flex-col items-center justify-center gap-5">
             <h2 className="w-5/6 text-4xl text-[#001A49] font-bold">

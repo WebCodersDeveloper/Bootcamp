@@ -3,6 +3,6 @@ import loginReducer from "./components/loginReducer";
 
 export default configureStore({
     reducer: {
-        login: loginReducer
+        login: loginReducer,
     }
 })
