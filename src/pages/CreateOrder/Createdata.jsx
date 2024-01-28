@@ -5,6 +5,7 @@ import { food } from "../../components/data";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { FaCar, FaEquals, FaMinus, FaPlus } from "react-icons/fa6";
 import { TbSum } from "react-icons/tb";
+import { InputMask } from 'react-input-mask';
 
 export default function Createdata() {
   const [secondPhone, setSecondPhone] = useState(false);
@@ -17,8 +18,6 @@ export default function Createdata() {
 
   const [showFirst, setShowFirst] = useState(true);
   const [showSecond, setShowSecond] = useState(false);
-
-  
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -40,15 +39,13 @@ export default function Createdata() {
   };
   const handleAdd = () => {
     if (showFirst === false && showSecond === false) {
-      setShowFirst(!showFirst)
-    }
-    else if(showSecond === false && showFirst === true) {
-      setShowSecond(!showSecond)
-      setBtnShow(!BtnShow)
-    }
-    else if(showSecond === true && showFirst === false) {
-      setShowFirst(!showFirst)
-      setBtnShow(!BtnShow)
+      setShowFirst(!showFirst);
+    } else if (showSecond === false && showFirst === true) {
+      setShowSecond(!showSecond);
+      setBtnShow(!BtnShow);
+    } else if (showSecond === true && showFirst === false) {
+      setShowFirst(!showFirst);
+      setBtnShow(!BtnShow);
     }
   };
 
@@ -121,9 +118,9 @@ export default function Createdata() {
                 {secondPhone && (
                   <span className="flex items-center py-1 gap-3">
                     <b className="w-24 text-[#48535B]">Телефон 2</b>
-                    <input
-                      type="text"
-                      placeholder="Телефон 2"
+                    <InputMask
+                      mask="+\9\98 99 999 99 99"
+                      placeholder="+998 XX XXX XX XX"
                       className="w-[460px] h-8 px-2 border-2 outline-none rounded-md"
                     />
                     <button
@@ -308,7 +305,12 @@ export default function Createdata() {
                     className="w-[305px] pl-2 py-1 h-8 border-2 rounded-md outline-none focus-within:border-blue-500"
                   />
                 </span>
-                <button onClick={() => {setShowFirst(!showFirst), setBtnShow(true)}} className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base">
+                <button
+                  onClick={() => {
+                    setShowFirst(!showFirst), setBtnShow(true);
+                  }}
+                  className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base"
+                >
                   <IoClose />
                 </button>
               </div>
@@ -397,35 +399,59 @@ export default function Createdata() {
                     className="w-[305px] pl-2 py-1 h-8 border-2 rounded-md outline-none focus-within:border-blue-500"
                   />
                 </span>
-                <button onClick={() => {setShowSecond(!showSecond),setBtnShow(true)}} className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base">
+                <button
+                  onClick={() => {
+                    setShowSecond(!showSecond), setBtnShow(true);
+                  }}
+                  className="mt-10 w-7 h-7 rounded-md flex items-center justify-center bg-[#FEE8E6] text-[#F76659] text-base"
+                >
                   <IoClose />
                 </button>
               </div>
             )}
             {BtnShow && (
-              <button onClick={() => handleAdd()} className="w-[97%] h-10 rounded-md border-dashed border-2 bg-[#6E8BB71A] flex items-center justify-center gap-1 text-[#6E8BB7]">
-              <IoMdAdd />
-              Добавить продукт
-            </button>
+              <button
+                onClick={() => handleAdd()}
+                className="w-[97%] h-10 rounded-md border-dashed border-2 bg-[#6E8BB71A] flex items-center justify-center gap-1 text-[#6E8BB7]"
+              >
+                <IoMdAdd />
+                Добавить продукт
+              </button>
             )}
             <div className="w-full border-t-2 h-44 flex">
               <div className="w-[50%] flex flex-col items-center justify-between px-2 py-1 border-r-2">
                 <span className="flex items-center h-14 gap-5">
                   <b>Типы оплаты</b>
                   <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
-                    <img className="w-7" src="https://s3-alpha-sig.figma.com/img/724d/d3de/f3bcd898a91a1562128c7fff2daa2afe?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=COh4UXPLyrZLzb2CWunJzcxkLwGLxpVBf8yCWI~gh0pjCSXSZ11dMAOxDXTwl9oQpGStC4MV3y2hS60tK9NQ~TIdHQ2c~gpDKDZz9L~SPRYxVB9PqAKKwxmOZ7x1~Y3rqsV8G8ib2YQC7hdH8NESgN-RMSZ9kUrLytoW6cvwHXlvpiDvr0mBumB~v3wSWkby6O9b591SRltmMja14C2TSA0g3GYoQ0GmEU1tYfeVZ2DQRXKC~ynZdmx5Lp~mtqhtYZqpC7iaUeBCmCyFo811RO8mb8460M046ySBxOd6vFPp636KylW3AlALI6l4xed3qUCTAuHiDLi6inN6sLQIWw__" alt="" />
+                    <img
+                      className="w-7"
+                      src="https://s3-alpha-sig.figma.com/img/724d/d3de/f3bcd898a91a1562128c7fff2daa2afe?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=COh4UXPLyrZLzb2CWunJzcxkLwGLxpVBf8yCWI~gh0pjCSXSZ11dMAOxDXTwl9oQpGStC4MV3y2hS60tK9NQ~TIdHQ2c~gpDKDZz9L~SPRYxVB9PqAKKwxmOZ7x1~Y3rqsV8G8ib2YQC7hdH8NESgN-RMSZ9kUrLytoW6cvwHXlvpiDvr0mBumB~v3wSWkby6O9b591SRltmMja14C2TSA0g3GYoQ0GmEU1tYfeVZ2DQRXKC~ynZdmx5Lp~mtqhtYZqpC7iaUeBCmCyFo811RO8mb8460M046ySBxOd6vFPp636KylW3AlALI6l4xed3qUCTAuHiDLi6inN6sLQIWw__"
+                      alt=""
+                    />
                   </button>
                   <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
-                    <img className="w-12" src="https://s3-alpha-sig.figma.com/img/7f1d/0dbc/cfefd3d50bb1756d2abead27733f1be2?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S7ppdSktvpQ8rFSWnMwqgpWKZFdcj3fy4lrjgp1FFg192hn7MF0HBrJx6wFabTaR5k4~18bTUigQbBuj-bU4Xy~X4GC8M2VUxMw9yrAxfalmsQ6jE1af9YaG-wD5IFw0jmShm3amewTyPEg8Ej8lqu6dpniSGODYVc4wusMaocZvy228YgiwENCT2x9G1VmUFDWii4cWDYKMQGtO2YFCzhZLBd97qZmHWspmP6MouB4WyDUBhWd7g8HwmbaXVBQIHes~YAQcCHK1VmjrJnp05iJR48bEoTI2-X7Baogu2Bzbu7Yow8u-fpctNEoKOFM~nLlk0qDFicrVprUJjfBmkw__" alt="" />
+                    <img
+                      className="w-12"
+                      src="https://s3-alpha-sig.figma.com/img/7f1d/0dbc/cfefd3d50bb1756d2abead27733f1be2?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=S7ppdSktvpQ8rFSWnMwqgpWKZFdcj3fy4lrjgp1FFg192hn7MF0HBrJx6wFabTaR5k4~18bTUigQbBuj-bU4Xy~X4GC8M2VUxMw9yrAxfalmsQ6jE1af9YaG-wD5IFw0jmShm3amewTyPEg8Ej8lqu6dpniSGODYVc4wusMaocZvy228YgiwENCT2x9G1VmUFDWii4cWDYKMQGtO2YFCzhZLBd97qZmHWspmP6MouB4WyDUBhWd7g8HwmbaXVBQIHes~YAQcCHK1VmjrJnp05iJR48bEoTI2-X7Baogu2Bzbu7Yow8u-fpctNEoKOFM~nLlk0qDFicrVprUJjfBmkw__"
+                      alt=""
+                    />
                   </button>
                   <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
-                    <img className="w-20" src="https://api.logobank.uz/media/logos_png/Uzum-01.png" alt="" />
+                    <img
+                      className="w-20"
+                      src="https://api.logobank.uz/media/logos_png/Uzum-01.png"
+                      alt=""
+                    />
                   </button>
                   <button className="w-[117px] h-10 rounded-md border-2 flex items-center justify-center bg-[#e5e9ebac]">
-                    <img className="w-7" src="https://cdn-icons-png.freepik.com/512/925/925065.png" alt="" />
+                    <img
+                      className="w-7"
+                      src="https://cdn-icons-png.freepik.com/512/925/925065.png"
+                      alt=""
+                    />
                   </button>
-                 </span>
-                 <span className="flex items-center">
+                </span>
+                <span className="flex items-center">
                   <b className="w-[122px]">Курьер</b>
                   <select className="w-[530px] h-8 border-2 rounded-md px-3">
                     <option>Курьер</option>
@@ -435,8 +461,8 @@ export default function Createdata() {
                     <option>Mirzo Ulug`bek</option>
                     <option>Novza</option>
                   </select>
-                 </span>
-                 <span className="flex items-center">
+                </span>
+                <span className="flex items-center">
                   <b className="w-[122px]">Оператор</b>
                   <select className="w-[530px] h-8 border-2 rounded-md px-3">
                     <option>Курьер</option>
@@ -446,7 +472,7 @@ export default function Createdata() {
                     <option>Mirzo Ulug`bek</option>
                     <option>Novza</option>
                   </select>
-                 </span>
+                </span>
               </div>
               <div className="w-[50%] flex flex-col items-center justify-between px-2 py-1">
                 <span className="flex items-center h-10 justify-between w-[85%]">

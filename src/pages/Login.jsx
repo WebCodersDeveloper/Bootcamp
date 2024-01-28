@@ -18,7 +18,6 @@ export default function Login() {
 
   const handleLog = (e) => {
     e.preventDefault();
-  
     if (name.trim() !== "" && password.trim().length >= 8) {
       dispatch(signIn({ title: name, password: password }));
       navigate('/dashboard')

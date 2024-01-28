@@ -1,4 +1,5 @@
 
+import { IoMdPeople } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -76,9 +77,9 @@ export default function Sidebar() {
                 <i className="fa-solid fa-cart-shopping"></i>
               </li>
             </Link>
-            <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
+            <Link to="/clients" className="text-2xl rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
             <li>
-              <i className="fa-solid fa-basket-shopping"></i>
+              <IoMdPeople />
             </li>
             </Link>
             <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">

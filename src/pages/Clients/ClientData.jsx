@@ -5,8 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { FaCar, FaCheck } from "react-icons/fa6";
 import { MdAdd } from "react-icons/md";
 import { IoMdClose, IoMdRefresh } from "react-icons/io";
-
-export default function StaticData() {
+export default function ClientData() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchData, setSearchData] = useState(searchFilter);
   const [showSearchFilter, setShowSearchFilter] = useState(false);
@@ -38,11 +37,11 @@ export default function StaticData() {
   const handleShow = (id) => {
     personalData.map((item) => {
       if (item.id === id) {
-        item.isEdit = !item.isEdit
+        item.isEdit = !item.isEdit;
       }
       console.log(item.isEdit);
     });
-    return personalData
+    return personalData;
   };
 
   return (
@@ -110,75 +109,6 @@ export default function StaticData() {
           </svg>
         </span>
         <div className="px-5 flex items-center gap-2">
-          <span className="flex items-center border-2 rounded-md">
-            <button className="w-8 h-8 rounded-l-md bg-white flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-              >
-                <g clipPath="url(#clip0_4634_812)">
-                  <path
-                    d="M8.31003 1.49503C8.06503 1.25003 7.67003 1.25003 7.42503 1.49503L3.27003 5.65003C3.07503 5.84503 3.07503 6.16003 3.27003 6.35503L7.42503 10.51C7.67003 10.755 8.06503 10.755 8.31003 10.51C8.55503 10.265 8.55503 9.87003 8.31003 9.62503L4.69003 6.00003L8.31503 2.37503C8.55503 2.13503 8.55503 1.73503 8.31003 1.49503Z"
-                    fill="#4094F7"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_4634_812">
-                    <rect width="12" height="12" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </button>
-            <span className="border-x-2 h-8 w-20 flex items-center justify-center bg-white">
-              Today
-            </span>
-            <button className="w-8 h-8 rounded-r-md bg-white flex items-center justify-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-              >
-                <g clipPath="url(#clip0_4634_818)">
-                  <path
-                    d="M3.69 10.5049C3.935 10.7499 4.33 10.7499 4.575 10.5049L8.73 6.3499C8.925 6.1549 8.925 5.8399 8.73 5.6449L4.575 1.4899C4.33 1.2449 3.935 1.2449 3.69 1.4899C3.445 1.7349 3.445 2.1299 3.69 2.3749L7.31 5.9999L3.685 9.6249C3.445 9.8649 3.445 10.2649 3.69 10.5049Z"
-                    fill="#4094F7"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_4634_818">
-                    <rect width="12" height="12" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </button>
-          </span>
-          <p className="w-28 h-full flex items-center justify-center gap-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-            >
-              <g clipPath="url(#clip0_4634_827)">
-                <path
-                  d="M8.33333 8.35L12.5 8.35V17.5H8.33333L8.33333 8.35ZM14.1667 17.5H16.6667C17.5833 17.5 18.3333 16.75 18.3333 15.8333V8.33333L14.1667 8.33333V17.5ZM16.6667 2.5L4.16667 2.5C3.25 2.5 2.5 3.25 2.5 4.16667L2.5 6.66667L18.3333 6.66667V4.16667C18.3333 3.25 17.5833 2.5 16.6667 2.5ZM2.5 15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H6.66667L6.66667 8.33333H2.5L2.5 15.8333Z"
-                  fill="#303940"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_4634_827">
-                  <rect width="20" height="20" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
-            Столбцы
-          </p>
           <button
             onClick={() => setShowFilter(!showFilter)}
             className="w-28 h-full flex items-center justify-center gap-1"
@@ -230,56 +160,114 @@ export default function StaticData() {
       </div>
 
       <div className="bg-[#DCE9F9] w-[100%] h-screen flex justify-center overflow-y-scroll py-5 ">
-        <div className="bg-white w-[97%] h-[1200px] flex flex-col items-center gap-5 rounded-md">
-          <div className="w-[95%] border-b-2 flex items-center h-[5%]">
-            <p className="text-[#6E8BB7] text-sm font-semibold px-5 border-b-[3px] h-full border-transparent hover:text-blue-500 transition-all cursor-pointer flex items-center hover:border-blue-500">
-              Курьер в пути
-            </p>
-            <p className="text-[#6E8BB7] text-sm font-semibold px-5 border-b-[3px] h-full border-transparent hover:text-blue-500 transition-all cursor-pointer flex items-center hover:border-blue-500">
-              Новый
-            </p>
-            <p className="text-[#6E8BB7] text-sm font-semibold px-5 border-b-[3px] h-full border-transparent hover:text-blue-500 transition-all cursor-pointer flex items-center hover:border-blue-500">
-              Оператор принял
-            </p>
-            <p className="text-[#6E8BB7] text-sm font-semibold px-5 border-b-[3px] h-full border-transparent hover:text-blue-500 transition-all cursor-pointer flex items-center hover:border-blue-500">
-              Загатовка
-            </p>
-            <p className="text-[#6E8BB7] text-sm font-semibold px-5 border-b-[3px] h-full border-transparent hover:text-blue-500 transition-all cursor-pointer flex items-center hover:border-blue-500">
-              Завершен
-            </p>
-            <p className="text-[#6E8BB7] text-sm font-semibold px-5 border-b-[3px] h-full border-transparent hover:text-blue-500 transition-all cursor-pointer flex items-center hover:border-blue-500">
-              Все заказы
-            </p>
-          </div>
-          <div className="w-[95%] h-[90%] border-2 rounded-md relative">
-            <div className="border-b-2 w-full h-12 flex justify-between">
-              <span className="flex items-center w-14 h-full justify-center">
-                <input type="checkbox" className="w-5" />
+        <div className="w-[97%]  h-[1400px] flex flex-col items-center gap-5 rounded-md">
+          <div className="flex justify-between w-[95%]">
+            <div className="bg-white w-[271px] h-[120px] rounded-md flex items-center justify-around gap-10">
+              <span className="flex flex-col">
+                <b className="text-[#4094F7] text-2xl font-bold">24</b>
+                <p className="text-[#6E8BB7] text-sm">Филиалы</p>
               </span>
-              <b className="w-12 h-full flex items-center justify-center">№</b>
-              <b className=" px-1 w-[224px] h-full flex items-center justify-center">
-                Клиент
+              <span className="p-5 bg-[#4094f726] rounded-md">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <path
+                    d="M29.2149 7.43636V2.86136C29.2149 2.22922 28.7041 1.71851 28.072 1.71851H3.92915C3.29701 1.71851 2.78629 2.22922 2.78629 2.86136V7.43636C2.18987 7.47208 1.71487 7.9685 1.71487 8.57565V13.2792C1.71258 14.1437 1.88761 14.9994 2.22915 15.7935C2.38272 16.1578 2.57201 16.5006 2.78629 16.8256V29.1471C2.78629 29.7756 3.29701 30.2899 3.92915 30.2899H28.072C28.7041 30.2899 29.2149 29.7792 29.2149 29.1471V16.8256C29.4325 16.4998 29.6191 16.1543 29.772 15.7935C30.1113 14.9971 30.2863 14.1506 30.2863 13.2792V8.57565C30.2863 7.9685 29.8113 7.47208 29.2149 7.43636ZM5.35772 4.28993H26.6434V7.43279H5.35772V4.28993ZM18.2863 27.7221H13.7149V24.0042H18.2863V27.7221ZM26.6434 27.7221H20.572V22.8614C20.572 22.2292 20.0613 21.7185 19.4291 21.7185H12.572C11.9399 21.7185 11.4292 22.2292 11.4292 22.8614V27.7221H5.35772V19.0721C5.46129 19.1221 5.56844 19.1721 5.67915 19.2149C6.47558 19.5506 7.32201 19.7185 8.19344 19.7185C9.06487 19.7185 9.90772 19.5506 10.7077 19.2149C11.2006 19.0078 11.6649 18.7435 12.0899 18.4256C12.097 18.4221 12.1042 18.4221 12.1113 18.4256C12.5376 18.7449 13.0019 19.01 13.4934 19.2149C14.2899 19.5506 15.1363 19.7185 16.0077 19.7185C16.8792 19.7185 17.722 19.5506 18.522 19.2149C19.0149 19.0078 19.4791 18.7435 19.9042 18.4256C19.9113 18.4221 19.9184 18.4221 19.9256 18.4256C20.3519 18.7449 20.8162 19.01 21.3077 19.2149C22.1041 19.5506 22.9506 19.7185 23.822 19.7185C24.6934 19.7185 25.5363 19.5506 26.3363 19.2149C26.4434 19.1685 26.5506 19.1221 26.6577 19.0721V27.7221H26.6434ZM27.7149 13.2792C27.7149 15.4149 25.9649 17.1471 23.8113 17.1471C22.3542 17.1471 21.0827 16.3578 20.4113 15.1864C20.3077 15.0078 20.122 14.8971 19.9149 14.8971H19.8934C19.6899 14.8971 19.5006 15.0078 19.397 15.1864C19.0544 15.7839 18.5596 16.2801 17.9631 16.6245C17.3665 16.9689 16.6894 17.1492 16.0006 17.1471C14.547 17.1471 13.2792 16.3614 12.6077 15.1935C12.5006 15.0114 12.3077 14.8971 12.097 14.8971C11.8863 14.8971 11.6899 15.0114 11.5863 15.1935C11.2417 15.7888 10.7463 16.2828 10.15 16.6257C9.55378 16.9687 8.87771 17.1485 8.18987 17.1471C6.03629 17.1471 4.28629 15.4149 4.28629 13.2792V10.0221C4.28629 10.0114 4.29344 10.0042 4.30415 10.0042H27.697C27.7077 10.0042 27.7149 10.0114 27.7149 10.0221V13.2792Z"
+                    fill="#4094F7"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div className="bg-white w-[271px] h-[120px] rounded-md flex items-center justify-around gap-10">
+              <span className="flex flex-col">
+                <b className="text-[#4094F7] text-2xl font-bold">110,823</b>
+                <p className="text-[#6E8BB7] text-sm">Клиенты</p>
+              </span>
+              <span className="p-5 bg-[#4094f726] rounded-md">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <path
+                    d="M14.6667 10.6667C14.6667 11.7276 14.2452 12.745 13.4951 13.4951C12.7449 14.2453 11.7275 14.6667 10.6667 14.6667C9.6058 14.6667 8.58839 14.2453 7.83824 13.4951C7.08809 12.745 6.66667 11.7276 6.66667 10.6667C6.66667 9.60582 7.08809 8.58841 7.83824 7.83826C8.58839 7.08811 9.6058 6.66669 10.6667 6.66669C11.7275 6.66669 12.7449 7.08811 13.4951 7.83826C14.2452 8.58841 14.6667 9.60582 14.6667 10.6667ZM25.3333 10.6667C25.3333 11.192 25.2299 11.7121 25.0289 12.1974C24.8278 12.6827 24.5332 13.1237 24.1618 13.4951C23.7903 13.8665 23.3494 14.1612 22.8641 14.3622C22.3788 14.5632 21.8586 14.6667 21.3333 14.6667C20.808 14.6667 20.2879 14.5632 19.8026 14.3622C19.3173 14.1612 18.8763 13.8665 18.5049 13.4951C18.1335 13.1237 17.8388 12.6827 17.6378 12.1974C17.4368 11.7121 17.3333 11.192 17.3333 10.6667C17.3333 9.60582 17.7548 8.58841 18.5049 7.83826C19.2551 7.08811 20.2725 6.66669 21.3333 6.66669C22.3942 6.66669 23.4116 7.08811 24.1618 7.83826C24.9119 8.58841 25.3333 9.60582 25.3333 10.6667ZM19.9067 25.3334C19.968 24.8974 20 24.4534 20 24C20.0031 21.9052 19.2983 19.8707 18 18.2267C19.0134 17.6416 20.1631 17.3335 21.3333 17.3335C22.5035 17.3335 23.6531 17.6415 24.6666 18.2266C25.68 18.8117 26.5216 19.6533 27.1068 20.6667C27.6919 21.6802 28 22.8298 28 24V25.3334H19.9067ZM10.6667 17.3334C12.4348 17.3334 14.1305 18.0357 15.3807 19.286C16.631 20.5362 17.3333 22.2319 17.3333 24V25.3334H4V24C4 22.2319 4.70238 20.5362 5.95262 19.286C7.20286 18.0357 8.89856 17.3334 10.6667 17.3334Z"
+                    fill="#4094F7"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div className="bg-white w-[271px] h-[120px] rounded-md flex items-center justify-around gap-10">
+              <span className="flex flex-col">
+                <b className="text-[#4094F7] text-2xl font-bold">110,823</b>
+                <p className="text-[#6E8BB7] text-sm">Подписчики</p>
+              </span>
+              <span className="p-5 bg-[#4094f726] rounded-md">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <g clipPath="url(#clip0_88_4935)">
+                    <path
+                      d="M16.0001 29.3333C17.4667 29.3333 18.6667 28.1333 18.6667 26.6666H13.3334C13.3334 28.1333 14.5201 29.3333 16.0001 29.3333ZM24.0001 21.3333V14.6666C24.0001 10.5733 21.8134 7.14665 18.0001 6.23998V5.33331C18.0001 4.22665 17.1067 3.33331 16.0001 3.33331C14.8934 3.33331 14.0001 4.22665 14.0001 5.33331V6.23998C10.1734 7.14665 8.00007 10.56 8.00007 14.6666V21.3333L6.28007 23.0533C5.44007 23.8933 6.02674 25.3333 7.2134 25.3333H24.7734C25.9601 25.3333 26.5601 23.8933 25.7201 23.0533L24.0001 21.3333Z"
+                      fill="#4094F7"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_88_4935">
+                      <rect width="32" height="32" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+            <div className="bg-white w-[271px] h-[120px] rounded-md flex items-center justify-around gap-10">
+              <span className="flex flex-col">
+                <b className="text-[#4094F7] text-2xl font-bold">75</b>
+                <p className="text-[#6E8BB7] text-sm">Курьеры</p>
+              </span>
+              <span className="p-5 bg-[#4094f726] rounded-md">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                >
+                  <g clipPath="url(#clip0_88_4943)">
+                    <path
+                      d="M25.2267 8.01335C24.96 7.22669 24.2133 6.66669 23.3333 6.66669H8.66667C7.78667 6.66669 7.05333 7.22669 6.77333 8.01335L4.14667 15.5734C4.05333 15.8534 4 16.1467 4 16.4534V26C4 27.1067 4.89333 28 6 28C7.10667 28 8 27.1067 8 26V25.3334H24V26C24 27.0934 24.8933 28 26 28C27.0933 28 28 27.1067 28 26V16.4534C28 16.16 27.9467 15.8534 27.8533 15.5734L25.2267 8.01335ZM8.66667 21.3334C7.56 21.3334 6.66667 20.44 6.66667 19.3334C6.66667 18.2267 7.56 17.3334 8.66667 17.3334C9.77333 17.3334 10.6667 18.2267 10.6667 19.3334C10.6667 20.44 9.77333 21.3334 8.66667 21.3334ZM23.3333 21.3334C22.2267 21.3334 21.3333 20.44 21.3333 19.3334C21.3333 18.2267 22.2267 17.3334 23.3333 17.3334C24.44 17.3334 25.3333 18.2267 25.3333 19.3334C25.3333 20.44 24.44 21.3334 23.3333 21.3334ZM6.66667 14.6667L8.36 9.57335C8.54667 9.04002 9.05333 8.66669 9.62667 8.66669H22.3733C22.9467 8.66669 23.4533 9.04002 23.64 9.57335L25.3333 14.6667H6.66667Z"
+                      fill="#4094F7"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_88_4943">
+                      <rect width="32" height="32" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div className="bg-white w-[95%] h-[90%] flex items-center justify-center  rounded-md relative">
+            <div className="border-2 rounded-md w-[95%] h-[95%]">
+            <div className="border-b-2 w-full h-12 flex justify-between">
+              <b className="h-full w-[776px] flex items-center pl-8 ">
+                Название
               </b>
-              <b className=" px-1 w-[104px] h-full flex items-center justify-center">
-                Ид.заказа
+              <b className="h-full w-[240px] flex items-center justify-center ">
+                Номер телефона
               </b>
-              <b className=" px-1 w-[120px] h-full flex items-center justify-center">
-                Таймер
-              </b>
-              <b className=" px-1 w-[88px] h-full flex items-center justify-center">
-                Курьер
-              </b>
-              <b className=" px-1 w-[224px] h-full flex items-center justify-center">
-                Филиал
-              </b>
-              <b className=" px-1 w-[136px] h-full flex items-center justify-center">
-                Тип доставки
-              </b>
-              <b className=" px-1 w-32 h-full flex items-center justify-center">
-                Цена заказа
-              </b>
-              <b className=" px-1 w-36 h-full flex items-center justify-center">
-                Адресс клиента
+              <b className="h-full w-[240px] flex items-center justify-center ">
+                Статус
               </b>
               <span className="w-12 h-full"></span>
             </div>
@@ -289,50 +277,11 @@ export default function StaticData() {
                   key={data.id}
                   className="border-b-2 w-full h-16 flex justify-between relative"
                 >
-                  <span className="flex items-center w-14 h-full justify-center">
-                    <input type="checkbox" className="w-5" />
+                  <p className="h-full w-[776px] flex items-center pl-8">{data.name}</p>
+                  <p className="h-full w-[240px] flex items-center justify-center">{data.number}</p>
+                  <span className="h-full w-[240px] flex items-center justify-center">
+                    <p className="w-36 h-7 rounded-md bg-[#4094F726] flex items-center justify-center capitalize text-[#4094F7]">{data.type}</p>
                   </span>
-                  <b className="w-12 h-full flex items-center justify-center">
-                    1
-                  </b>
-                  <span className="px-1 w-[224px] h-full flex flex-col justify-center items-center gap-1">
-                    <p>{data.name}</p>
-                    <p className="text-blue-500">{data.number}</p>
-                  </span>
-                  <p className="px-1 w-[104px] h-full flex items-center justify-center">
-                    {data.id}
-                  </p>
-                  <span className="px-1 w-[120px] h-full flex items-center justify-center">
-                    <p className="bg-[#38D9B933] px-2 py-1 rounded-md text-green-500">
-                      {data.timer}
-                    </p>
-                  </span>
-                  <b className="px-1 w-[88px] h-full flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="2"
-                      viewBox="0 0 14 2"
-                      fill="none"
-                    >
-                      <path d="M14 0.5H0V1.5H14V0.5Z" fill="#6E8BB7" />
-                    </svg>
-                  </b>
-                  <span className="px-1 w-[224px] h-full flex flex-col justify-center items-center gap-1">
-                    <p>{data.branch}</p>
-                    <p className="text-blue-500">{data.phone}</p>
-                  </span>
-                  <span className="px-1 w-[136px] h-full flex items-center justify-center capitalize">
-                    <p className="bg-[#F8DD4E4D] px-2 py-1 rounded-md text-[#D29404]">
-                      {data.type}
-                    </p>
-                  </span>
-                  <p className="px-1 w-32 h-full flex items-center justify-center">
-                    {data.price}$
-                  </p>
-                  <p className="px-1 w-36 h-full flex items-center">
-                    {data.clientAddress}
-                  </p>
                   <span className="w-12 h-full flex items-center justify-center">
                     <button
                       onClick={() => handleShow(data.id)}
@@ -399,6 +348,7 @@ export default function StaticData() {
                 </div>
               );
             })}
+            </div>
           </div>
         </div>
       </div>

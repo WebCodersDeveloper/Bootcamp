@@ -4,10 +4,12 @@ import { FaRegCalendar } from "react-icons/fa6";
 import { MdOutlineTimer } from "react-icons/md";
 import { FaSave } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 export default function CreateTop() {
   const id = uid();
   const date = new Date();
+  // const navigate = useNavigate()
 
   const datetime = format(date, "yyyy-MM-dd HH:mm:ss");
 
@@ -41,10 +43,10 @@ export default function CreateTop() {
               <option value="Delivery">Доставка</option>
             </select>
           </span>
-          <button className="border-l-2 transition-all w-[142px] h-full flex items-center text-[#F76659] justify-center gap-1 hover:bg-[#F76659] hover:text-white">
+          <Link to="/orders" className="border-l-2 transition-all w-[142px] h-full flex items-center text-[#F76659] justify-center gap-1 hover:bg-[#F76659] hover:text-white">
             <IoMdCloseCircle />
             <p>Отменить</p>
-          </button>
+          </Link>
           <button className="border-l-2 transition-all w-[142px] h-full flex items-center text-[#4094F7] justify-center gap-1 hover:bg-[#4094F7] hover:text-white">
             <FaSave />
             <p>Сохранить</p>
