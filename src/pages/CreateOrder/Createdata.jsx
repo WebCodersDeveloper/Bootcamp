@@ -5,7 +5,7 @@ import { food } from "../../components/data";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import { FaCar, FaEquals, FaMinus, FaPlus } from "react-icons/fa6";
 import { TbSum } from "react-icons/tb";
-import { InputMask } from 'react-input-mask';
+import InputMask from 'react-input-mask';
 
 export default function Createdata() {
   const [secondPhone, setSecondPhone] = useState(false);
@@ -98,11 +98,11 @@ export default function Createdata() {
                 </span>
                 <span className="flex items-center py-1 gap-3">
                   <b className="w-24 text-[#48535B]">Телефон</b>
-                  <input
-                    type="text"
-                    placeholder="Телефон"
-                    className="w-[460px] h-8 px-2 border-2 outline-none rounded-md"
-                  />
+                  <InputMask
+                      mask="+\9\98 99 999 99 99"
+                      placeholder="+998 XX XXX XX XX"
+                      className="w-[460px] h-8 px-2 border-2 outline-none rounded-md"
+                    />
                   {addBtnShow && (
                     <button
                       onClick={() => {
