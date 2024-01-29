@@ -12,30 +12,30 @@ export default function Router() {
   const navigate = useNavigate();
   const login = localStorage.getItem('login');
   console.log(login);
-  const savedLogin = JSON.parse(localStorage.getItem("login"));
-  // useEffect(() => {
-  //   const savedLogin = JSON.parse(localStorage.getItem('login'));
-  //   if(!savedLogin?.name || user.title && location.pathname !== '/login') {
-  //     navigate('/login'); 
-  //   }
-  
-  //   if(savedLogin?.name || user.title && location.pathname === '/login') {
-  //     navigate('/dashboard');
-  //   }
-  // }, [user, navigate, location]);
-
-
+  // const savedLogin = JSON.parse(localStorage.getItem("login"));
   useEffect(() => {
-    // Redirect to login if there is no saved login data
-    if (!savedLogin?.name && location.pathname !== "/login") {
-      navigate("/login");
+    const savedLogin = JSON.parse(localStorage.getItem('login'));
+    if(!savedLogin?.name  && location.pathname !== '/login') {
+      navigate('/login'); 
     }
+  
+    if(savedLogin?.name  && location.pathname === '/login') {
+      navigate('/dashboard');
+    }
+  }, [user, navigate, location]);
 
-    // Redirect to dashboard if there is saved login data
-    if (savedLogin?.name && location.pathname === "/login") {
-      navigate("/dashboard");
-    }
-  }, [savedLogin, location, navigate]);
+
+  // useEffect(() => {
+  //   // Redirect to login if there is no saved login data
+  //   if (!savedLogin?.name && location.pathname !== "/login") {
+  //     navigate("/login");
+  //   }
+
+  //   // Redirect to dashboard if there is saved login data
+  //   if (savedLogin?.name && location.pathname === "/login") {
+  //     navigate("/dashboard");
+  //   }
+  // }, [savedLogin, location, navigate]);
 
   return (
     <Routes>
