@@ -1,3 +1,4 @@
+import { Outlet } from "react-router";
 import Sidebar from "../Dashboard/Sidebar";
 import TopBarSecond from "../Orders/TopBarSecond";
 import ClientData from "./ClientData";
@@ -11,6 +12,7 @@ export default function Clients() {
           <TopBarSecond />
           <ClientData />
         </div>
+        <Outlet />
       </div>
     </>
   );

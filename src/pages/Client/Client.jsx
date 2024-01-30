@@ -1,11 +1,13 @@
 
+import { useParams } from 'react-router';
 import Sidebar from '../Dashboard/Sidebar';
 import ClientBody from './ClientBody';
 import ClientTop from './ClientTop';
 
 export default function Client({params}) {
-  const clientId = params;
-  console.log(clientId);
+  // const clientId = params;
+  const clientId = useParams(params);
+  // console.log(clientId);
   
   return (
     <>

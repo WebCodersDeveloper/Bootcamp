@@ -144,12 +144,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
   {
     name: 'Арсений Морозов',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "142835",
     timer: '02:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -158,12 +159,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Basic",
   },
   {
     name: 'unknown',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: '423237',
     timer: '02:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -172,12 +174,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
   {
     name: 'Elzabet Delica',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: '192835',
     timer: '02:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -186,12 +189,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Standard",
   },
   {
     name: 'Karmila Smith',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "762539",
     timer: '02:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -200,12 +204,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Standard",
   },
   {
     name: 'Serdar Otech',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "885835",
     timer: '02:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -214,12 +219,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Basic",
   },
   {
     name: 'Ali Yazde',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "105830",
     timer: '01:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -228,12 +234,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 888,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
   {
     name: 'Zaik Burdan',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "408819",
     timer: '01:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -242,12 +249,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 120,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Basic",
   },
   {
     name: 'Alisa Jekom',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "555801",
     timer: '01:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -256,12 +264,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 614,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
   {
     name: 'Tom Hinland',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "160947",
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -270,12 +279,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 985,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
   {
     name: 'Kagura Anna',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "729451",
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -284,12 +294,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 367,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Standard",
   },
   {
     name: 'Fredrin Borden',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "936189",
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -298,12 +309,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 485,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Standard",
   },
   {
     name: 'Harley Smith',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "520120",
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -312,12 +324,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 985,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Basic",
   },
   {
     name: 'Lesly Ziakowski',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "104629",
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -326,12 +339,13 @@ export const personalData = [
     typeThird: 'cancel',
     price: 367,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
   {
     name: 'Brody Kaguya',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: "926416",
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -340,7 +354,8 @@ export const personalData = [
     typeThird: 'cancel',
     price: 485,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "Basic",
   },
   {
     name: 'Lisa Jones',
@@ -354,7 +369,8 @@ export const personalData = [
     typeThird: 'cancel',
     price: 485,
     clientAddress: 'ул. Байкальская‚ д. 52‚ кв. 22',
-    isEdit: false
+    isEdit: false,
+    typeClient: "VIP",
   },
 ]
 

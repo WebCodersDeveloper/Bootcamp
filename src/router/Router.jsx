@@ -3,14 +3,12 @@ import Login from "./../pages/Login";
 import Dashboard from "./../pages/Dashboard/Dashboard";
 import Orders from "./../pages/Orders/Orders";
 import Createorder from "../pages/CreateOrder/Createorder";
-import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Clients from "../pages/Clients/Clients";
 
 import Client from "../pages/Client/Client";
 
 export default function Router() {
-  const user = useSelector((state) => state.login);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,7 +21,7 @@ export default function Router() {
     if (savedLogin?.name && location.pathname === "/login") {
       navigate("/dashboard");
     }
-  }, [user, navigate, location]);
+  }, [navigate, location]);
 
   return (
     <Routes>
@@ -33,8 +31,10 @@ export default function Router() {
         <Route path="createorder" element={<Createorder />} />
         <Route index element={<Orders />} />
       </Route>
-      <Route path="/clients" element={<Clients />} />
-      <Route path="/clients/:id" element={<Client />} />
+      <Route path="/clients" element={<Outlet />} >
+        <Route path=":id" element={<Client />} />
+        <Route index element={<Clients />} />
+      </Route>
     </Routes>
   );
 }
