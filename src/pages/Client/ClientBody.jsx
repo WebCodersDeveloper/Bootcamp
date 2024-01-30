@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import Clienown from "./Clienown";
-import Clientzakaz from './Clientzakaz';
+// import Clientzakaz from './Clientzakaz';
 
 
 export default function ClientBody({ clientId }) {
