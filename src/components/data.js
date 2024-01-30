@@ -135,7 +135,7 @@ export const personalData = [
   {
     name: 'Арсений Морозов',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: '649845',
     timer: '02:33:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',
@@ -345,7 +345,7 @@ export const personalData = [
   {
     name: 'Lisa Jones',
     number: '+998 (90) 123-45-67',
-    id: uid(),
+    id: '94951181',
     timer: '03:03:48',
     branch: 'Марк Васильев',
     phone: '+998 (90) 123-45-67',

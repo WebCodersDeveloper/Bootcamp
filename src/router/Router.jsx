@@ -1,4 +1,4 @@
-import { Outlet, Route, Routes, useNavigate } from "react-router";
+import { Outlet, Route, Routes, useNavigate, useLocation } from "react-router";
 import Login from "./../pages/Login";
 import Dashboard from "./../pages/Dashboard/Dashboard";
 import Orders from "./../pages/Orders/Orders";
@@ -7,35 +7,23 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import Clients from "../pages/Clients/Clients";
 
+import Client from "../pages/Client/Client";
+
 export default function Router() {
-  const user = useSelector(state => state.login);
+  const user = useSelector((state) => state.login);
   const navigate = useNavigate();
-  const login = localStorage.getItem('login');
-  console.log(login);
-  // const savedLogin = JSON.parse(localStorage.getItem("login"));
+  const location = useLocation();
+
   useEffect(() => {
-    const savedLogin = JSON.parse(localStorage.getItem('login'));
-    if(!savedLogin?.name  && location.pathname !== '/login') {
-      navigate('/login'); 
+    const savedLogin = JSON.parse(localStorage.getItem("login"));
+    if (!savedLogin?.name && location.pathname !== "/login") {
+      navigate("/login");
     }
-  
-    if(savedLogin?.name  && location.pathname === '/login') {
-      navigate('/dashboard');
+
+    if (savedLogin?.name && location.pathname === "/login") {
+      navigate("/dashboard");
     }
   }, [user, navigate, location]);
-
-
-  // useEffect(() => {
-  //   // Redirect to login if there is no saved login data
-  //   if (!savedLogin?.name && location.pathname !== "/login") {
-  //     navigate("/login");
-  //   }
-
-  //   // Redirect to dashboard if there is saved login data
-  //   if (savedLogin?.name && location.pathname === "/login") {
-  //     navigate("/dashboard");
-  //   }
-  // }, [savedLogin, location, navigate]);
 
   return (
     <Routes>
@@ -45,7 +33,8 @@ export default function Router() {
         <Route path="createorder" element={<Createorder />} />
         <Route index element={<Orders />} />
       </Route>
-      <Route path="/clients" element={<Clients />}/>
+      <Route path="/clients" element={<Clients />} />
+      <Route path="/clients/:id" element={<Client />} />
     </Routes>
   );
 }

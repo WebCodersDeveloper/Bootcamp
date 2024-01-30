@@ -5,6 +5,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { FaCar, FaCheck } from "react-icons/fa6";
 import { MdAdd } from "react-icons/md";
 import { IoMdClose, IoMdRefresh } from "react-icons/io";
+import { Link } from "react-router-dom";
 export default function ClientData() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchData, setSearchData] = useState(searchFilter);
@@ -273,7 +274,7 @@ export default function ClientData() {
             </div>
             {filteredPersonalData.map((data) => {
               return (
-                <div
+                <Link to={data.id}
                   key={data.id}
                   className="border-b-2 w-full h-16 flex justify-between relative"
                 >
@@ -345,7 +346,7 @@ export default function ClientData() {
                       </button>
                     </div>
                   )}
-                </div>
+                </Link>
               );
             })}
             </div>
