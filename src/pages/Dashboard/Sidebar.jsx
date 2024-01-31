@@ -1,5 +1,6 @@
 
 import { IoMdPeople } from "react-icons/io";
+import { MdGpsFixed } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -82,9 +83,9 @@ export default function Sidebar() {
               <IoMdPeople />
             </li>
             </Link>
-            <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
+            <Link to='/advertising' className="text-2xl rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
               <li>
-                <i className="fa-solid fa-shop"></i>
+                <MdGpsFixed />
               </li>
             </Link>
             <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">

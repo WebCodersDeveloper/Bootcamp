@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Clients from "../pages/Clients/Clients";
 
 import Client from "../pages/Client/Client";
+import Advertising from "../pages/Advertising/Advertising";
 
 export default function Router() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export default function Router() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/advertising" element={<Advertising />} />
       <Route path="/orders" element={<Outlet />}>
         <Route path="createorder" element={<Createorder />} />
         <Route index element={<Orders />} />

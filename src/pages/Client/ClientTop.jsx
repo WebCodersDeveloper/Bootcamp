@@ -1,9 +1,13 @@
+/* eslint-disable react/prop-types */
 import { FaSave } from "react-icons/fa";
 import {  FaArrowLeft,  FaChevronRight,  FaFolder } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { personalData } from "../../components/data";
 
-export default function ClientTop() {
+export default function ClientTop({ clientId }) {
+  const currentClientData = personalData;
+  const foundClient = currentClientData.find((item) => item.id === clientId.id);
   return (
     <>
       <div className="flex flex-col w-full">
@@ -17,20 +21,22 @@ export default function ClientTop() {
                 <p>Клиенты</p>
                 <FaChevronRight className="text-[#D5DADD]"/>
             </Link>
-            <span className="text-[#6E7C87] flex items-center gap-3">
-                <FaFolder className="text-[#4094F7]"/>
-                <p>София Андианова</p>
-            </span>
+           {foundClient ? (
+             <span className="text-[#6E7C87] flex items-center gap-3">
+             <FaFolder className="text-[#4094F7]"/>
+             <p>{foundClient.name}</p>
+         </span>
+           ) : <p>Client not found</p>}
           </div>
           <div className="h-full flex">
-            <button className="border-l-2  w-[130px] h-full flex items-center justify-center gap-1">
+            <Link to="/clients" className="border-l-2  w-[130px] h-full flex items-center justify-center gap-1">
                 <span className="text-[#F76659]">
                     <IoIosCloseCircle />
                 </span>
               <p className="text-[#F76659]">Отменить</p>
-            </button>
+            </Link>
             <Link
-              to="createorder"
+              to="/clients"
               className="border-l-2 transition-all w-[130px] h-full flex items-center text-[#4094F7] justify-center gap-1 hover:bg-[#4094F7] hover:text-white"
             >
               <FaSave />
