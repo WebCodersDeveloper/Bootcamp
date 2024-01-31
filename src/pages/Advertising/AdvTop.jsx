@@ -18,7 +18,7 @@ export default function AdvTop({
 
   return (
     <>
-      <div className="flex flex-col w-[100%]">
+      <div className="flex flex-col w-full">
         <div className="w-full h-16 flex justify-between items-center pl-4">
           <h2 className="text-xl font-bold text-[#303940]">Delever</h2>
           <div className="h-full flex">

@@ -481,3 +481,44 @@ export const food = [
     price: 22000,
   },
 ]
+
+
+
+
+export const bannerData = [
+  {
+    id: '1',
+    img: 'Banner1.png',
+    nameUz: 'Баннер 1',
+    nameRu: 'Баннер 1',
+    status: 'Активный',
+  },
+  {
+    id: '2',
+    img: 'Banner2.png',
+    nameUz: 'Баннер 2',
+    nameRu: 'Баннер 2',
+    status: 'Активный',
+  },
+  {
+    id: '3',
+    img: 'Banner3.png',
+    nameUz: 'Баннер 3',
+    nameRu: 'Баннер 3',
+    status: 'Активный',
+  },
+  {
+    id: '4',
+    img: 'Banner4.png',
+    nameUz: 'Баннер 4',
+    nameRu: 'Баннер 4',
+    status: 'Активный',
+  },
+  {
+    id: '5',
+    img: 'Banner5.png',
+    nameUz: 'Баннер 5',
+    nameRu: 'Баннер 5',
+    status: 'Активный',
+  },
+]

@@ -67,7 +67,7 @@ export default function Sidebar() {
               </defs>
             </svg>
           </span>
-          <ul className="bg-[#6e8bb727] gap-1 rounded-md w-10 h-[305px] flex flex-col ul-item overflow-hidden">
+          <ul className="bg-[#6e8bb727] gap-1 rounded-md w-10 h-[174px] flex flex-col ul-item overflow-hidden">
             <Link to="/dashboard" className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
               <li>
                 <i className="fa-solid fa-square-poll-vertical"></i>
@@ -88,21 +88,7 @@ export default function Sidebar() {
                 <MdGpsFixed />
               </li>
             </Link>
-            <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
-              <li>
-                <i className="fa-solid fa-star"></i>
-              </li>
-            </Link>
-            <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
-              <li>
-                <i className="fa-solid fa-clock-rotate-left"></i>
-              </li>
-            </Link>
-            <Link className="rounded-md text-[#6E8BB7] active:bg-blue-500 focus-within:bg-blue-500 focus-within:text-white">
-              <li>
-                <i className="fa-solid fa-gear"></i>
-              </li>
-            </Link>
+
           </ul>
         </div>
       </div>

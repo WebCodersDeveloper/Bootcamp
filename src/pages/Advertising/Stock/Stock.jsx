@@ -2,13 +2,13 @@
 import { FaCar, FaCheck, } from "react-icons/fa6";
 import { IoMdClose, IoMdRefresh } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export default function Stock({handleShow, filteredPersonalData}) {
   return (
     <>
       <div className="bg-[#DCE9F9] border  h-screen flex justify-center overflow-y-scroll py-5 ">
-        <div className="w-[85%] h-[1400px] flex flex-col items-center gap-5 rounded-md">
+        <div className="w-[95%] h-[1400px] flex flex-col items-center gap-5 rounded-md">
           <div className="bg-white w-[90%] h-[90%] flex items-center justify-center  rounded-md relative">
             <div className="border-2 rounded-md w-[95%] h-[95%]">
               <div className="border-b-2 w-full h-12 flex justify-between">
@@ -28,10 +28,10 @@ export default function Stock({handleShow, filteredPersonalData}) {
               </div>
               {filteredPersonalData.map((data) => {
                 return (
-                  <Link
+                  <div
                     to={data.id}
                     key={data.id}
-                    className="border-b-2 w-full h-16 flex justify-between relative"
+                    className="border-b-2 w-full h-16 flex justify-between relative pr-1"
                   >
                     <p className="h-full w-[776px] flex items-center pl-8">
                       {data.name}
@@ -107,7 +107,7 @@ export default function Stock({handleShow, filteredPersonalData}) {
                         </button>
                       </div>
                     )}
-                  </Link>
+                  </div>
                 );
               })}
             </div>
