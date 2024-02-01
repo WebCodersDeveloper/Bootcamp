@@ -522,3 +522,57 @@ export const bannerData = [
     status: 'Активный',
   },
 ]
+
+
+
+
+export const reviews = [
+  {
+    id: '1',
+    text: '😉 Курьер молодец',
+    emoji: 'fa-solid fa-thumbs-up',
+    status: 'Активный'
+  },
+  {
+    id: '2',
+    text: '⚡️ Быстрая доставка',
+    emoji: 'fa-solid fa-thumbs-up',
+    status: 'Активный'
+  },
+  {
+    id: '3',
+    text: '😋 Вкусная еда',
+    emoji: 'fa-solid fa-thumbs-up',
+    status: 'Активный'
+  },
+  {
+    id: '4',
+    text: '🤝 Оператор был вежлив и дружелюбен',
+    emoji: 'fa-solid fa-thumbs-up',
+    status: 'Активный'
+  },
+  {
+    id: '5',
+    text: '🐌 Долгая доставка',
+    emoji: 'fa-solid fa-thumbs-down',
+    status: 'Активный'
+  },
+  {
+    id: '6',
+    text: '🙁 Остывшая еда',
+    emoji: 'fa-solid fa-thumbs-down',
+    status: 'Активный'
+  },
+  {
+    id: '7',
+    text: '🙁 Проблемы с курьером',
+    emoji: 'fa-solid fa-thumbs-down',
+    status: 'Активный'
+  },
+  {
+    id: '8',
+    text: '🙁 Проблемы с оператором',
+    emoji: 'fa-solid fa-thumbs-down',
+    status: 'Активный'
+  },
+]

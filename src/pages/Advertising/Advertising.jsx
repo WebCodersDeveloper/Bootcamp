@@ -5,6 +5,7 @@ import AdvTop from "./AdvTop";
 import Advsidebar from "./Advsidebar";
 import Stock from "./Stock/Stock";
 import Banner from "./Banner/Banner";
+import Reviews from "./Reviews/Reviews";
 
 export default function Advertising() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -115,6 +116,7 @@ export default function Advertising() {
               />
             )}
             {banner && <Banner />}
+            {reviews && <Reviews />}
           </div>
         </div>
       </div>
